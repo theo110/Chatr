@@ -1,0 +1,115 @@
+.navRow {
+    display: flex;
+    justify-content: space-between;
+}
+
+.text {
+    max-width: 500px;
+    line-height: 24px;
+    padding: 4px 10px;
+    border-radius: 10px;
+    position: relative;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.message {
+    display: flex;
+}
+
+.nameLabel{
+    text-align: left;
+    margin-left: 0.4em;
+    color: #5ab3f4;
+    font-size: 1.1em;
+}
+
+.sent {
+    flex-direction: row-reverse;
+}
+
+.sent .text {
+    color: #F0FFFF;
+    background: #5ab3f4;
+    align-self: flex-end;
+}
+
+.received .text {
+    background: #e5e5ea;
+    color: black;
+}
+
+.admin {
+    align-self: center;
+}
+
+.admin .text {
+    align-self: center;
+    color: #49e0f4;
+    font-size: 0.9em;
+}
+
+
+.form {
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    background-color: white;
+}
+
+
+.formCol {
+    display: flex;
+    align-items: center;
+}
+
+.roominfo {
+    float: left;
+}
+
+.chatwindow {
+    float: right;
+}
+
+.borderRight500 {
+    border-right: 3px solid #e0e0e0;
+    background-color: #F5F5F5  ;
+}
+
+.chatSection {
+    width: 100%;
+    height: 90vh;
+    margin-top: 10vh;
+}
+
+.messageArea {
+    height: 70vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.sendButton {
+    height: 100%;
+}
+
+::-webkit-scrollbar{
+    width: 0.5em;
+    height: 0.5em;
+}
+::-webkit-scrollbar-track{
+    border-radius: 100em;
+    background-color: #f0ffff;
+}
+::-webkit-scrollbar-thumb{
+    background: #5ab3f4;
+    border-radius: 100em;
+}
+
+@supports(scrollbar-color: red blue){
+    *{
+        scrollbar-color: #5ab3f4 #f0ffff;
+        scrollbar-width: thin;
+    }
+}
