@@ -2,7 +2,7 @@ const express = require("express")
 const http = require("http")
 const cors = require("cors")
 const { addUser, removeUser, getUser, getAllUsers } = require("./utils")
-
+const path = require("path")
 const PORT = process.env.PORT || 5000
 
 const app = express()
@@ -19,7 +19,10 @@ router.get("/", (req, res) => {
     res.send("Server is up and running!");
 });
 
-app.use(router)
+app.use(express.static('client/dist'))
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'))
+})
 
 io.on("connection", socket => {
     socket.on("join", (data) => {
