@@ -11,7 +11,11 @@ var server = app.listen(app.get('port'), function() {
     console.log('Node app is running on port', app.get('port'));
 });
 
-const io = require('socket.io')(server);
+const io = require('socket.io')(server, {
+    cors: {
+      origin: '*',
+    }
+  });
 
 app.use(express.static('client/dist'))
 app.use(function (req, res, next) {

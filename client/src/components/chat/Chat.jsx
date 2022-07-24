@@ -30,7 +30,7 @@ function Chat2(props) {
     const [users, setUsers] = useState([]);
     const [messages, setMessages] = useState([]);
 
-    const END_POINT = "http://localhost:5000";
+    const END_POINT = "https://chatr-troh.herokuapp.com";
 
     const messagesEnd = createRef()
 
