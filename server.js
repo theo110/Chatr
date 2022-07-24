@@ -6,7 +6,6 @@ const path = require("path")
 const PORT = process.env.PORT || 5000
 
 const app = express()
-app.use(cors())
 app.use(express.static('client/dist'))
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'))
@@ -15,14 +14,9 @@ app.get('*', (req, res) => {
 const server = http.createServer(app)
 const io = require("socket.io")(server, {
     cors: {
-        origin: '*'
+        origin: 'http://chatr-troh.herokuapp.com/'
     }
 })
-
-const router = express.Router()
-router.get("/", (req, res) => {
-    res.send("Server is up and running!");
-});
 
 io.on("connection", socket => {
     socket.on("join", (data) => {
@@ -69,9 +63,9 @@ io.on("connection", socket => {
                 users: getAllUsers(user.room)
             })
         }),
-        socket.on("send-message", async(message, callback) => {
+        socket.on("send-message", async (message, callback) => {
             const user = await getUser(socket.id)
-            try{
+            try {
                 io.to(user.room).emit("message", {
                     user: user.name,
                     text: message
@@ -80,7 +74,7 @@ io.on("connection", socket => {
                     room: user.room,
                     users: getAllUsers(user.room)
                 })
-            } catch (e){
+            } catch (e) {
                 console.log(e)
             }
         })
