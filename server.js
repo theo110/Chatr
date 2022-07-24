@@ -3,21 +3,26 @@ const http = require("http")
 const cors = require("cors")
 const { addUser, removeUser, getUser, getAllUsers } = require("./utils")
 const path = require("path")
-const PORT = process.env.PORT || 5000
 
 const app = express()
-app.use(cors())
+app.set('port', (process.env.PORT || 5000))
+
+var server = app.listen(app.get('port'), function() {
+    console.log('Node app is running on port', app.get('port'));
+});
+
+const io = require('socket.io')(server);
+
 app.use(express.static('client/dist'))
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+});
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'))
 })
 
-const server = http.createServer(app)
-const io = require("socket.io")(server, {
-    cors: {
-        origin: '*'
-    }
-})
 
 io.on("connection", socket => {
     socket.on("join", (data) => {
@@ -64,9 +69,9 @@ io.on("connection", socket => {
                 users: getAllUsers(user.room)
             })
         }),
-        socket.on("send-message", async(message, callback) => {
+        socket.on("send-message", async (message, callback) => {
             const user = await getUser(socket.id)
-            try{
+            try {
                 io.to(user.room).emit("message", {
                     user: user.name,
                     text: message
@@ -75,9 +80,8 @@ io.on("connection", socket => {
                     room: user.room,
                     users: getAllUsers(user.room)
                 })
-            } catch (e){
+            } catch (e) {
                 console.log(e)
             }
         })
 })
-server.listen(PORT, () => console.log("Server start on port " + PORT))
