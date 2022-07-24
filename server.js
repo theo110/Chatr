@@ -6,6 +6,11 @@ const path = require("path")
 const PORT = process.env.PORT || 5000
 
 const app = express()
+app.use(express.static('client/dist'))
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'))
+})
+
 const server = http.createServer(app)
 const io = require("socket.io")(server, {
     cors: {
@@ -13,16 +18,10 @@ const io = require("socket.io")(server, {
     }
 })
 
-
 const router = express.Router()
 router.get("/", (req, res) => {
     res.send("Server is up and running!");
 });
-
-app.use(express.static('client/dist'))
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'))
-})
 
 io.on("connection", socket => {
     socket.on("join", (data) => {
