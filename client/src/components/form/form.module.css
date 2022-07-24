@@ -1,0 +1,13 @@
+.sendButton {
+    height: 10vh;
+    margin-top: 500px;
+}
+
+.mainContainer {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}

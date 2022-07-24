@@ -6,7 +6,7 @@ function Info({ styles }) {
         <AppBar position="absolute" color="primary" className={styles.hero}>
             <Toolbar className={styles.navRow}>
                 <Typography component="h1" variant="h3" color="secondary.light" noWrap>
-                    rChat
+                    Chatr
                 </Typography>
                 <a style={{textDecoration: "none"}}href="/">
                     <Button

@@ -36,22 +36,6 @@ const Message = ({ message, name, styles }) => {
                     </Grid>
                 </Grid>
             </ListItem>
-            /*
-            <>
-                {!(isSentByTheCurrentUser || isSentByAdmin) && <h4 style={{ textAlign: "left" }}>{message.user}</h4>}
-
-                <div
-                    className={`${styles.message} ${isSentByTheCurrentUser ? styles.sent : (isSentByAdmin ? styles.admin : styles.received)
-                        }`}
-                >
-                    <div className={styles.text}>
-                        <span>{message.text}</span>
-                    </div>
-                </div>
-
-            </>
-            */
-
         )
     }
     return null;
