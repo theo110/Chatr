@@ -79,13 +79,21 @@
 }
 
 .chatSection {
+    overflow-y: hidden;
     width: 100%;
     height: 90vh;
     margin-top: 10vh;
 }
 
+.limiter{
+    height: 15vh
+}
+.hero {
+    height: 10vh
+}
+
 .messageArea {
-    height: 70vh;
+    height: 77.5vh;
     overflow-y: auto;
     overflow-x: hidden;
 }

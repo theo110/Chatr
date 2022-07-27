@@ -2,7 +2,7 @@ import { Typography, Grid, List, ListItem, ListItemText, Divider } from '@mui/ma
 
 function Info({ room, users, styles }) {
     return (
-        <Grid item xs={3} className={styles.borderRight500}>
+        <Grid item xs={2.5} className={styles.borderRight500}>
             <Grid item xs={12} >
                 <ListItem>
                     <ListItemText disableTypography

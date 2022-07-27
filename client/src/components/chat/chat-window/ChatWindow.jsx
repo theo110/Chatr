@@ -5,7 +5,7 @@ import {Grid, List, Divider} from '@mui/material';
 
 function ChatWindow({ messages, styles, setMessage, sendMessage, name, messagesEnd}) {
     return (
-        <Grid item xs={9}>
+        <Grid item xs={9.5}>
             <List className={styles.messageArea}>
                 {messages.map((message) => (
                     <Messages
