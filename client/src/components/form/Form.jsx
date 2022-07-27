@@ -34,15 +34,17 @@ function Form(props) {
                 <Box component="form" onSubmit={handleSubmit}>
                     <TextField margin="normal" fullWidth required label="Enter your name:" onChange={e => { setName(e.target.value) }} />
                     <TextField margin="normal" fullWidth required label="Enter a room id:" onChange={e => { setRoom(e.target.value) }} />
-                    <Button
-                        className={styles.sendButton}
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                    >
-                        Join
-                    </Button>
+                    <div className={styles.buttonWrapper} >
+                        <Button
+                            className={styles.sendButton}
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                        >
+                            Join
+                        </Button>
+                    </div>
                 </Box>
             </Box>
         </ThemeProvider>

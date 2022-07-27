@@ -1,7 +1,11 @@
 .sendButton {
-    height: 10vh;
-    margin-top: 5px;
+    height: 6vh;
 }
+
+.buttonWrapper{
+    margin-top: 2vh;
+}
+
 
 .mainContainer {
     margin-top: 5vh;

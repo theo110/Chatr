@@ -1,6 +1,7 @@
 .navRow {
     display: flex;
     justify-content: space-between;
+    height: 100%;
 }
 
 .text {
@@ -89,7 +90,8 @@
     height: 15vh
 }
 .hero {
-    height: 10vh
+    height: 10vh;
+    justify-content: center;
 }
 
 .messageArea {
