@@ -1,4 +1,4 @@
 # Chatr
-[WIP] simple chatroom app
+simple chatroom app
 
 https://chatr-troh.herokuapp.com 
